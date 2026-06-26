@@ -10,7 +10,7 @@ This is the source of truth. If it's not documented, it doesn't exist.
 
 ### Core Documentation (numbered sequence)
 
-- **[00-roadmap.md](./00-roadmap.md)** — Master roadmap for all 9 milestones (M0–M8)
+- **[00-roadmap.md](./00-roadmap.md)** — Master roadmap: Brainrot Studio V1 (Phases 1–7), then intelligence layer (Phases 8–12). See Decision #18 for why. The `milestones/M0–M8/` folders below are now reference material for Phases 8–12, not the active sequence.
 - **[01-vision.md](./01-vision.md)** — Product vision and goals
 - **[02-prd.md](./02-prd.md)** — Product Requirements Document
 - **[03-architecture.md](./03-architecture.md)** — System architecture
@@ -27,7 +27,11 @@ This is the source of truth. If it's not documented, it doesn't exist.
 
 Most of 01–10 are currently stubs marked "to be written" at their milestone (M1 mostly). They exist now so every doc has a home from day one — see CONTRIBUTING.md's documentation-first rule.
 
-### Milestones
+### Brainrot Studio (Active — Phases 1-7)
+
+- **[studio/](./studio/)** — Page-by-page specs for Brainrot Studio, the current focus. See `studio/README.md` for the per-page workflow and `studio/pages/` for individual page specs (e.g., `01-brand-page.md`).
+
+### Milestones (Reference for Phases 8-12)
 
 Each milestone has its own folder in `milestones/M0/` through `milestones/M8/`. Only the current milestone has a full task breakdown; future milestones are intentionally locked/blocked until their turn (see roadmap discipline in `BACKLOG.md`).
 

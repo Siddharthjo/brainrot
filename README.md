@@ -59,19 +59,25 @@ Every component is replaceable. Every decision is logged. Every video teaches th
 
 ## 🗺️ Roadmap
 
-| Phase | Name | Duration | Status |
-|-------|------|----------|--------|
-| M0 | Technology Validation | 3–5 days | ✅ Starting |
-| M1 | Planning & Architecture | 1 week | ⏳ Next |
-| M2 | Foundation | 2 weeks | ⏳ Next |
-| M3 | Research Engine | 2 weeks | ⏳ Next |
-| M4 | Intelligence Engine | 3 weeks | ⏳ Next |
-| M5 | Story Visualization & Render Engine | 4 weeks | ⏳ Next |
-| M6 | Publishing Engine | 1.5 weeks | ⏳ Next |
-| M7 | Analytics & Learning | 1 week | ⏳ Next |
-| M8 | CEO AI | 1 week | ⏳ Next |
+**Strategic direction (Decision #18, June 26, 2026): Brainrot Studio V1 — vertical slice, Studio-first.** Original intelligence-first milestones preserved as Phases 8–12, built after the Studio works end to end.
 
-**Estimated Launch:** Early September 2026
+| Phase | Name | Status |
+|-------|------|--------|
+| Phase 1 | Studio Foundation | 🔄 Brand page designed, build next |
+| Phase 2 | Brand Configuration | ⏳ Next |
+| Phase 3 | Creative Configuration (Engines) | ⏳ Next |
+| Phase 4 | Content Generation Pipeline | ⏳ Next |
+| Phase 5 | Rendering Pipeline | ⏳ Next |
+| Phase 6 | Publishing System | ⏳ Next |
+| Phase 7 | Operations | ⏳ Next |
+| **— V1 complete here —** | | |
+| Phase 8 | Research Engine | Reference: original M3 |
+| Phase 9 | Intelligence Engine | Reference: original M4 |
+| Phase 10 | Creative Director | Reference: original M4 |
+| Phase 11 | Learning System | Reference: original M7 |
+| Phase 12 | Autonomous Optimization / CEO AI | Reference: original M8 |
+
+See `docs/00-roadmap.md` for full detail and `DECISIONS.md` #18 for the reasoning.
 
 ---
 
@@ -193,7 +199,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for the operating manual.
 
 ## 📋 Project Status
 
-- **Current Milestone:** M0 — Technology Validation
+- **Current Phase:** Phase 1 — Studio Foundation
 - **Status:** In Progress
 - **Last Updated:** June 26, 2026
 

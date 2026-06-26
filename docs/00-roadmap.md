@@ -1,325 +1,173 @@
 # Brainrot Roadmap
 
-**Status: M0 — Technology Validation (In Progress)**
+**Status: Phase 1 — Studio Foundation (Brand page designed, build starts next session)**
+
+**This roadmap was rewritten June 26, 2026 per Decision #18 (Strategic Pivot to Brainrot Studio V1). The original M0–M8 backend-first roadmap is preserved below as the reference design for Phases 8–12 — it is not discarded, just resequenced to come after the Studio's core workflow is proven.**
 
 ---
 
-## 🔍 Milestone 0 — Technology Validation
+## Vision
 
-**Goal:** Validate every external dependency before building.
+Brainrot Studio is an internal AI Media Operating System built for a single operator (Sid) to manage multiple YouTube Shorts and Instagram Reel brands from one place.
 
-**Duration:** 3–5 days
+The immediate objective: a complete end-to-end content creation and publishing platform, inspired by FacelessReels' *workflow* (not its feature list), with every page, option, and configuration designed by us. Brainrot is not a SaaS in V1 — it's an internal operating system to run multiple AI content brands.
 
-**What We Do:**
-- Compare video generation providers (AutoShorts, StoryShort, Creatomate, Shotstack)
-- Compare voice providers (ElevenLabs, Google TTS, Cartesia)
-- Test OpenAI APIs
-- Test YouTube API
-- Test Instagram/Meta API
-- Test Cloudflare R2 storage
-- Estimate API costs at scale
-
-**Deliverable:** Final list of technologies with no unknowns.
-
-**Location:** `/docs/milestones/M0/`
+**Mission test for every decision (unchanged from Decision #13):**
+> Brainrot transforms information into high-retention, story-driven short-form videos through modular AI decision layers.
 
 ---
 
-## 📐 Milestone 1 — Planning & Architecture
+## Development Philosophy
 
-**Goal:** Design the entire system before writing code.
+FacelessReels is a workflow benchmark, not a feature checklist. For every page:
+1. Study the equivalent workflow.
+2. Understand its purpose.
+3. Design Brainrot's improved version.
+4. Decide features, backend requirements, and external providers.
+5. Build in Lovable.
+6. Connect backend.
+7. Test with real data.
+8. Freeze. Move to the next page.
 
-**Duration:** 1 week
+**No page is over-designed before being built.** "Frozen" means *frozen enough to build V1* — sufficient to move to the next step, not a perfect final design.
 
-**What We Do:**
-- Product Requirements Document (PRD)
-- System architecture diagram
-- Database schema (frozen)
-- API design (all endpoints)
-- Folder structure
-- AI agent architecture
-- Dashboard wireframes
-- Coding standards
-- Decision log
-
-**Deliverable:** Complete blueprint for Claude.
-
-**Status:** Blocked on M0
+**Core Rule (binding):** every working session must produce a tangible artifact — a working Studio page, a backend endpoint, a successful integration, a rendered or published video, a merged commit. Not just a new plan or document.
 
 ---
 
-## 🏗️ Milestone 2 — Foundation
+## M0 — Architecture & Technology Validation (Current, ongoing in background)
 
-**Goal:** Build the core platform.
-
-**Duration:** 2 weeks
-
-**What We Do:**
-- Backend (FastAPI)
-- Database (PostgreSQL + SQLAlchemy)
-- Authentication (JWT + FastAPI Users)
-- Dashboard shell (Lovable)
-- User/workspace management
-- Channel CRUD
-- Basic settings
-
-**Deliverable:** Working app. You can log in and manage channels.
-
-**Tasks:**
-- M2-T01: Backend setup
-- M2-T02: Database schema
-- M2-T03: Authentication
-- M2-T04: Channel CRUD
-- M2-T05: Dashboard shell
-
-**Status:** Blocked on M1
+Still active in parallel: the renderer benchmark (Creatomate/Shotstack/JSON2Video, see `docs/milestones/M0/`), voice provider, LLM strategy. These feed into Phase 5 (Rendering) and Phase 3 (Creative Configuration) once reached. Not blocking Phase 1.
 
 ---
 
-## 🌍 Milestone 3 — Research Engine
+## Phase 1 — Studio Foundation
 
-**Goal:** Automatically discover content opportunities.
+**Goal:** Build the application shell.
 
-**Duration:** 2 weeks
+**Pages:** Authentication · Dashboard · Navigation · Global Layout · Settings · Theme · Brand Management
 
-**What We Do:**
-- RSS feed integration
-- News sources
-- Reddit integration
-- GitHub releases
-- Company blogs
-- Web search
-- Deduplication
-- Story storage
-- Source management
+**Outcome:** A usable Brainrot Studio capable of managing multiple brands.
 
-**Deliverable:** Dashboard showing today's researched stories.
-
-**Tasks:**
-- M3-T01: RSS connector
-- M3-T02: Reddit connector
-- M3-T03: News connector
-- M3-T04: Deduplication logic
-- M3-T05: Story storage
-
-**Status:** Blocked on M2
+**Status:** Brand Management page designed (`docs/studio/pages/01-brand-page.md`) — frozen enough for V1. Build in Lovable starts next session.
 
 ---
 
-## 🧠 Milestone 4 — Intelligence Engine & Creative Director
+## Phase 2 — Brand Configuration
 
-**Goal:** Turn raw information into a script + creative direction, ready to be visualized.
+**Goal:** Configure how every content brand behaves.
 
-**Duration:** 3 weeks
+**Pages:** Create Brand · Brand Profile · Niche · Audience · Platform Selection · Brand Defaults · Brand Templates
 
-**What We Do:**
-- Viral scoring algorithm
-- Topic clustering
-- Hook generation (LLM)
-- Script generation (LLM) — Intelligence Engine (Layer 3)
-- AI review
-- Creative Director agent — tone, pacing, visual mood, retention strategy (Layer 4, Decision #15)
-- Human approval workflow (Mode A checkpoint, Decision #16)
-- Prompt management
-
-**Deliverable:** Queue of `Narration Script` + `Creative Brief` pairs, ready for the Story Visualization Engine.
-
-**Tasks:**
-- M4-T01: Scoring algorithm
-- M4-T02: Hook generator
-- M4-T03: Script generator (Intelligence Engine)
-- M4-T04: Creative Director agent
-- M4-T05: Approval workflow
-- M4-T06: Learning loop setup
-
-**Status:** Blocked on M3
+**Outcome:** A complete brand configuration workflow.
 
 ---
 
-## 🎬 Milestone 5 — Story Visualization Engine & Render Engine
+## Phase 3 — Creative Configuration
 
-*(Renamed from "Production Engine" — see Decision #14, #17. This milestone covers Layers 5 and 6 of the frozen architecture.)*
+**Goal:** Design every creative option Brainrot supports, as configurable engines (not fixed presets).
 
-**Goal:** Convert a `Narration Script` + `Creative Brief` into a `Scene Blueprint`, then render it into a finished video (Narrative Visual Storytelling format — Decision #14).
+**Pages:** Hook Engine · Story Engine · Visual Engine · Voice Engine · Caption Engine · Audio Engine · Effects Engine · Prompt Configuration
 
-**Duration:** 4 weeks (includes renderer evaluation)
+For each: available modes, presets (stored as rows in a presets table — extension point for future AI auto-selection), advanced options, providers, defaults.
 
-**What We Do:**
-- Story Visualization Agent: scene splitting, per-scene asset-type selection (Layer 5)
-- Voice generation
-- Visual generation/B-roll per scene (AI illustration, stock, motion graphic — chosen per scene/genre, not fixed globally)
-- Caption generation
-- Music selection
-- `Scene Blueprint` schema implementation (`schemas/scene_blueprint.py`, Decision #17)
-- Video rendering via provider API (Layer 6 — Render Engine, dumb executor)
-- Thumbnail creation
-- Preview & regeneration (Mode A approval point sits here — Decision #16)
-
-**Deliverable:** Complete, platform-ready videos, produced from an approved Scene Blueprint.
-
-**Tasks:**
-- M5-T01: Voice provider integration
-- M5-T02: Story Visualization Agent (scene planning + asset selection)
-- M5-T03: Scene Blueprint schema implementation
-- M5-T04: Video API integration (Render Engine)
-- M5-T05: Thumbnail generation
-- M5-T06: Renderer evaluation & testing
-
-**Status:** Blocked on M4
-
-**Note:** Renderer evaluation (M5-T06) is separate from implementation. Test all options, pick one.
-
+**Outcome:** Every creative decision is configurable, and every engine has a hook for future intelligence to plug into without a redesign.
 
 ---
 
-## 📤 Milestone 6 — Publishing Engine
+## Phase 4 — Content Generation Pipeline
+
+**Goal:** Turn brand configuration into actual content.
+
+**Pages:** Topic Selection · Story Generation · Script Review · Creative Brief · Scene Blueprint · Asset Selection · Preview
+
+**Extension point:** Generation output is stored in the same schema shape Decisions #14–#17 defined for the future Creative Director / Story Visualization Engine, even though V1 populates it with simple prompt-based defaults, not real AI ranking.
+
+**Outcome:** A complete content creation workflow, V1 simple — Phase 9–10 makes it intelligent.
+
+---
+
+## Phase 5 — Rendering Pipeline
+
+**Goal:** Generate production-ready videos.
+
+**Pages:** Renderer Configuration · Render Queue · Rendering Status · History · Failed Jobs
+
+**Feeds from:** M0's renderer benchmark (Decision #19, pending) and the Scene Blueprint → renderer translation layer already scoped in `docs/milestones/M0/M0-creatomate-implementation.md`.
+
+**Outcome:** Videos generate automatically.
+
+---
+
+## Phase 6 — Publishing System
 
 **Goal:** Publish content automatically.
 
-**Duration:** 1.5 weeks
+**Pages:** Connected Accounts · Account Manager · Publish Queue · Scheduler · Calendar · Upload History
 
-**What We Do:**
-- YouTube upload (Official API)
-- Instagram upload (Meta Graph API)
-- Scheduling
-- Retry handling
-- Upload logs
-- Status tracking
-
-**Deliverable:** One-click approval → automatic publishing.
-
-**Tasks:**
-- M6-T01: YouTube integration
-- M6-T02: Instagram integration
-- M6-T03: Scheduling system
-- M6-T04: Retry/failure handling
-- M6-T05: Logging
-
-**Status:** Blocked on M5
+**Outcome:** Videos publish automatically to YouTube Shorts and Instagram Reels.
 
 ---
 
-## 📊 Milestone 7 — Analytics & Learning
+## Phase 7 — Operations
 
-**Goal:** Learn from every published video.
+**Goal:** Manage the entire media operation day to day.
 
-**Duration:** 1 week
+**Pages:** Dashboard · Daily Overview · Active Jobs · Notifications · Queue Monitor · Brand Health
 
-**What We Do:**
-- View tracking
-- Engagement metrics
-- Retention analysis
-- Topic performance
-- Hook performance
-- Upload-time analysis
-- Recommendations
-- Internal performance database
-
-**Deliverable:** Dashboard showing what works & what to create next.
-
-**Tasks:**
-- M7-T01: Analytics data collection
-- M7-T02: Performance dashboard
-- M7-T03: Topic analysis
-- M7-T04: Hook analysis
-- M7-T05: Recommendations engine
-
-**Status:** Blocked on M6
+**Outcome:** Brainrot Studio becomes the daily operating tool.
 
 ---
 
-## 🤖 Milestone 8 — CEO AI
+## ✅ V1 Complete When
 
-**Goal:** Control the entire platform through conversation.
+Phases 1–7 done means: **Brand → Configure → Generate → Render → Publish** works end to end, for real, publishing real videos to real accounts. This is the milestone — not feature parity with FacelessReels, not every advanced option built.
 
-**Duration:** 1 week
-
-**What We Do:**
-- AI chatbot interface
-- Tool definitions (40+ operations)
-- Create channels
-- Change settings
-- Generate content
-- Pause/resume publishing
-- Explain analytics
-- Execute workflows
-
-**Deliverable:** AI assistant managing Content OS via natural language.
-
-**Tasks:**
-- M8-T01: Tool definitions
-- M8-T02: Chatbot prompt
-- M8-T03: Tool execution layer
-- M8-T04: Error handling
-- M8-T05: Testing
-
-**Status:** Blocked on M7
+**Stop expanding V1 features at this point.** Shift to Phase 8.
 
 ---
 
-## ✅ Version 1 Success Criteria
+## Phase 8 — Research Engine *(Reference: original M3, Decision #13 Layer 2)*
 
-Content OS v1 is complete when:
-
-- ✅ One YouTube Shorts channel fully managed
-- ✅ One Instagram account fully managed
-- ✅ You define the niche
-- ✅ System researches content automatically
-- ✅ It ranks and suggests ideas
-- ✅ It generates scripts for approval
-- ✅ It produces videos automatically
-- ✅ It uploads automatically
-- ✅ It tracks performance
+Source plugins (Reddit, RSS, News, X, Manual), story discovery, deduplication, scoring. Plugs into the Research page's existing extension point (sources-as-typed-rows).
 
 ---
 
-## 📈 Version 2 (Future)
+## Phase 9 — Intelligence Engine *(Reference: original M4, Decision #13 Layer 3)*
 
-Only after V1 proves successful:
-
-- Multiple YouTube & Instagram accounts
-- Multiple niches
-- Shared content libraries
-- Team collaboration
-- A/B testing
-- Multi-language content
-- Additional platforms
-- Monetization tracking
+Hook optimization, script generation, viral scoring. Plugs into Story Generation's existing schema.
 
 ---
 
-## Timeline Summary
+## Phase 10 — Creative Director *(Reference: original M4, Decision #15)*
 
-| Milestone | Duration | Cumulative |
-|-----------|----------|-----------|
-| M0 | 3–5 days | 3–5 days |
-| M1 | 1 week | 1.5–2 weeks |
-| M2 | 2 weeks | 3.5–4 weeks |
-| M3 | 2 weeks | 5.5–6 weeks |
-| M4 | 3 weeks | 8.5–9 weeks |
-| M5 | 4 weeks | 12.5–13 weeks |
-| M6 | 1.5 weeks | 14–15 weeks |
-| M7 | 1 week | 15–16 weeks |
-| M8 | 1 week | 16–17 weeks |
-
-**Estimated Completion:** Early September 2026
-**Buffer Before MS:** 3–4 weeks
+Separate layer producing the Creative Brief (tone, pacing, retention strategy) — Decision #15's reasoning for keeping this independent from script generation still applies.
 
 ---
 
-## Guiding Principle
+## Phase 11 — Learning System *(Reference: original M7, Decision #13 Layer 8)*
 
-Every milestone ends with something you can actually use.
+Analytics feeding back into Research and Intelligence. Winning hooks, winning styles, performance-driven recommendations.
 
-- M2: You can manage channels
-- M3: You can browse stories
-- M4: You can generate scripts
-- M5: You can generate videos
-- M6: You can publish automatically
-- M7: You can see performance
-- M8: You can control it all via conversation
+---
+
+## Phase 12 — Autonomous Optimization *(Reference: original M8 CEO AI + Mode B)*
+
+Mode B (autonomous, Decision #16) becomes viable once Mode A has built trust in the pipeline. Conversational control layer (CEO AI) — last, as originally scoped.
+
+---
+
+## Architecture Reference (Unchanged, Decisions #13–#17)
+
+The 8-layer architecture, Scene Blueprint, and Creative Brief schemas frozen in `docs/03-architecture.md` remain the design target for Phases 8–12. Nothing about *what* gets built there has changed — only *when*.
+
+---
+
+## V0 Origin (Historical)
+
+Original M0–M8 milestone structure (Sources → Research → Intelligence → Creative Director → Story Visualization → Render → Publishing → Analytics → CEO AI, backend-first) is preserved in `/DECISIONS.md` Decisions #13–#17 and `docs/03-architecture.md`. Superseded in ordering by Decision #18, not in substance.
 
 ---
 
 Last Updated: June 26, 2026
-Status: M0 in progress
+Status: Phase 1 in progress (Brand page designed, build pending)

@@ -29,7 +29,36 @@ Every task has:
 
 ---
 
-## Architecture Principles
+## Brainrot Studio Page Workflow (Decision #18 — binding from June 26, 2026)
+
+V1 is built page by page, not module by module. Every Studio page follows the same process:
+
+1. Study the equivalent FacelessReels (or relevant) workflow.
+2. Understand its purpose — why does this page exist?
+3. Design Brainrot's improved version.
+4. Decide features, options, and workflow.
+5. Decide required backend services and database tables.
+6. Decide external providers/APIs needed.
+7. Build the page in Lovable.
+8. Connect backend.
+9. Test with real data.
+10. Freeze the page — "frozen" means *frozen enough to build V1*, not a perfect final design.
+11. Move to the next page.
+
+Page specs live in `docs/studio/pages/`, one file per page, using the 8-question format (see `docs/studio/README.md`).
+
+**Mandatory extension-point rule:** every page must leave a hook for the future intelligence layer (Phases 8–12) without requiring a redesign. Concretely:
+- Presets (visual style, voice, caption style, hook style) are rows in a `presets` table, never hardcoded dropdown values.
+- Sources (Reddit, RSS, manual entry) are typed rows in a `sources` table, never separate hardcoded form sections.
+- Generation output is saved in the schema shape the future Creative Director/Story Visualization Engine will eventually populate (Decisions #14–#17), even though V1 fills it with simple defaults.
+
+### Core Rule — Every Session Produces an Artifact
+
+Every working session on Brainrot must produce a tangible artifact: a working Studio page, a backend endpoint, a successful integration, a rendered or published video, or a merged commit. **Not just a new plan, framework, or document.** If a session is about to end with only a better plan, ask whether that plan was actually necessary before producing it. Planning ends where implementation begins.
+
+---
+
+
 
 Never violate these. If you want to change one, propose it in `/DECISIONS.md`.
 

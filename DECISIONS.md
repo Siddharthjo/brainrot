@@ -346,7 +346,37 @@ response = ai_provider.generate_script(...)
 
 ---
 
-## Pending Decisions (M0)
+## Decision #18
+
+**Topic**: Strategic Pivot — Brainrot Studio V1 (Vertical Slice, Studio-First)
+
+**Chosen**: V1 is no longer "build the 8-layer intelligence architecture, then add a UI." V1 is **Brainrot Studio** — an internal AI Media Operating System for a single operator, explicitly benchmarked against FacelessReels' workflow (not its feature list), built as a complete vertical slice:
+
+```
+Brand → Configure → Generate → Render → Publish
+```
+
+Studio Phases 1–7 (Foundation, Brand Management, Creative Configuration, Content Pipeline, Rendering, Publishing, Analytics) ship first. The intelligence layer frozen in Decisions #13–#17 (Research Engine, Intelligence Engine, Creative Director, Story Visualization Engine, Learning Loop) is **not discarded** — it becomes Phases 8–12, built *after* the Studio reliably publishes real content, not before.
+
+**Reasoning**:
+- A working, demoable product within weeks is worth more right now than a theoretically superior architecture with nothing to click on. The original plan's biggest risk was "all planning, no shipped artifact" — this was observed repeatedly across the same session (the Development Philosophy document, multiple roadmap rewrites) before this decision was made.
+- FacelessReels already proves the underlying workflow (brand setup → configure → generate → publish) is commercially viable. Re-deriving and shipping that loop first, with Brainrot's own UX and configuration depth, is lower-risk than building the harder, unproven intelligence layer first with no way to validate it end-to-end.
+- **Explicit counter-argument, recorded for the record:** this defers Brainrot's actual differentiation (research/ranking/learning — the thing competitors can't easily copy) to last, not first. V1 risks being a nicer-looking FacelessReels clone if Phases 8–12 are delayed indefinitely. This risk was raised directly and is accepted knowingly, not overlooked — see the Core Rule below as the safeguard against indefinite delay.
+- **Resolution adopted to mitigate that risk (per CTO's "Option C" framing):** every Studio page is designed with extension points — presets stored as rows in a database table rather than hardcoded dropdown values, sources stored as typed rows rather than hardcoded form sections, generation output stored in the same schema shape a future Creative Director would eventually populate. This means Phases 8–12 plug into existing pages later without a UI redesign, even though V1 only ever populates these structures with simple defaults.
+
+**Consequence**:
+- `docs/00-roadmap.md` is rewritten. The original M0–M8 structure is preserved as the **reference design for Phases 8–12**, not deleted — Decisions #13–#17 (8-layer architecture, Scene Blueprint, Creative Brief, Creative Director separation, Mode A/B checkpoint) remain valid and will be implemented when Phase 8 starts.
+- New development workflow per page (see CONTRIBUTING.md): study the equivalent workflow → understand its purpose → design Brainrot's improved version → decide features/backend/providers → build in Lovable → connect backend → test → freeze → next page. No page is over-designed before being built.
+- **New Core Rule, binding from this point forward: every working session must produce a tangible artifact** (a working Studio page, a backend endpoint, a successful integration, a rendered or published video, a merged commit) — not just a new plan, framework, or document. If a session produces only a better plan, that plan's necessity should be questioned before producing it.
+- FacelessReels is explicitly a **workflow benchmark, not a feature checklist** — Brainrot does not copy borrowed-IP features (character art styles) or fixed niche presets; it generalizes each page into a configurable engine (Visual Engine, Voice Engine, Caption Engine, Hook Engine) that any brand can configure differently.
+
+**Date**: June 26, 2026
+
+**Status**: Active — supersedes the phase ordering (not the architecture) of Decisions #13–#17
+
+---
+
+
 
 These will be decided during Technology Validation:
 

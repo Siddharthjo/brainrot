@@ -39,7 +39,7 @@ Next: Establish the "nothing without a milestone" rule formally (done — added 
 Worked on: M0-T01, video provider evaluation. Did web research across AutoShorts, StoryShort, Creatomate, Shotstack, BigMotion, InVideo — plus discovered JSON2Video as an unplanned 7th candidate while researching Creatomate alternatives.
 Completed: Wrote `docs/research/M0-video-providers.md` with full findings, and `docs/research/technology-decision-matrix.md` as the single live tracker for all M0 decisions (per CTO's request). Caught a real architecture risk: AutoShorts and StoryShort both want to own the topic/script decision layer themselves, which conflicts with Brainrot's "we own the brain, not the renderer" principle (Decision #6). Narrowed the field to 3 finalists for hands-on testing: Creatomate, Shotstack, JSON2Video. StoryShort held for one narrow test (can it render a plain script without forcing an AI avatar?). AutoShorts eliminated (no confirmed API).
 Problems: First draft of the findings doc lifted several sentences too close to verbatim from source pages without quotation marks — caught it before committing and rewrote the whole file with proper paraphrasing per copyright discipline.
-Next: Write the actual test script, render it through Creatomate/Shotstack/JSON2Video APIs for real, compare output quality/cost/latency, lock Decision #18 (Video Provider — renumbered after the architecture freeze took #13–17). Then M0-T02 (Voice Provider).
+Next: Write the actual test script, render it through Creatomate/Shotstack/JSON2Video APIs for real, compare output quality/cost/latency, lock Decision #19 (Video Provider — renumbered again after the Studio-pivot decision took #18). Then M0-T02 (Voice Provider).
 
 ---
 
@@ -62,7 +62,24 @@ Next: M0-T01 hands-on renderer test, now informed by the locked format (Narrativ
 Worked on: Turned "render a test script through 3 providers" into a proper weighted benchmark, per CTO's request. Wrote a 7-criterion scoring rubric (API integration, template flexibility, visual quality, render speed, reliability, cost, scalability — weighted 20/20/20/10/10/10/10) and a fixed benchmark script written as an actual Scene Blueprint (the canonical schema from Decision #17) — an 8-scene, 52-second AI News story deliberately stressing all 3 asset types (stock footage, AI illustration, motion graphic), a repeated visual motif, mixed caption styles, layered audio, and a CTA scene.
 Completed: `docs/milestones/M0/M0-renderer-benchmark.md` (methodology, rubric, comparison table template, per-provider implementation notes mapping Scene Blueprint fields to each API's native shape) and `docs/milestones/M0/M0-benchmark-script.md` (the fixed input). Updated M0 README and PROJECT_STATUS.md to point to these as the actual next action.
 Problems: None.
-Next: Actually implement the benchmark script in Creatomate, Shotstack, and JSON2Video by hand, score the results, lock Decision #18. This is real implementation work (not research/docs) — first time M0 produces something outside `/docs`.
+Next: Actually implement the benchmark script in Creatomate, Shotstack, and JSON2Video by hand, score the results, lock Decision #19 (renumbered again — see the strategic-pivot entry below, which took #18). This is real implementation work (not research/docs) — first time M0 produces something outside `/docs`.
+
+---
+
+## June 26, 2026 (night) — Strategic pivot to Brainrot Studio V1
+
+Worked on: A long discussion, prompted by looking closely at FacelessReels' actual UI (8-step series wizard: Niche, Voice, Music, Art Style, Captions, Effects, Connect Accounts, Schedule), about whether to keep building the intelligence-first architecture or pivot to a Studio-first vertical slice. Pushed back twice on scope expansions disguised as "realizations" — first a "Development Philosophy" document optimizing for enterprise SaaS rigor against a hard deadline, then a "Brainrot Studio is V1, threaded through every milestone" reframing that would have added 12+ days of UI work per milestone with no corresponding time saved. Named the pattern directly: three full scope reframings in one session, each larger than the last, each arriving as a polished, persuasive document — the exact failure mode that sinks ambitious solo-founder projects (endless re-planning, never shipping).
+
+The actual resolution, reached jointly with the CTO across several rounds: **Option C ("Studio-first, intelligence threaded through via extension points")** — build Brainrot Studio as a complete vertical slice (Brand → Configure → Generate → Render → Publish) first, inspired by FacelessReels' *workflow* not its feature list, but with every page designed so the original 8-layer intelligence architecture (Decisions #13–#17) can plug in later without a redesign. Concretely: presets-as-database-rows instead of hardcoded dropdowns, sources-as-typed-rows, generation output saved in the future Creative Director's schema shape from day one.
+
+New binding rule adopted: **every session must produce a tangible artifact** (a built page, an endpoint, an integration, a published video, a merged commit) — not just another plan. This directly addresses the planning-without-shipping pattern observed repeatedly today.
+
+Completed: Logged the pivot as Decision #18 in `/DECISIONS.md` (with the counter-argument — V1 risks looking like a nicer FacelessReels clone if Phases 8–12 get delayed — recorded explicitly, not glossed over). Rewrote `docs/00-roadmap.md` (new Phases 1–12, original M0–M8 preserved as the reference design for Phases 8–12, not deleted). Rewrote `docs/01-vision.md`. Added the Studio Page Workflow + Core Rule to `CONTRIBUTING.md`. Created `docs/studio/` with the first page spec, `01-brand-page.md` (Brand Management — designed via the 8-question framework, frozen enough for V1, Lovable prompt not yet written). Updated `PROJECT_STATUS.md`.
+
+Problems: None in the documentation itself. The real problem this entire session surfaced was process, not content — too much high-quality planning, not enough shipped artifact, across many hours. That's now directly addressed by the Core Rule, not just noted.
+
+Next: This project's actual next required artifact is the Brand page Lovable prompt, built lean (just enough to create a brand and move to Configure), and the page itself built in Lovable. No more roadmap or philosophy documents until that exists.
+
 
 
 

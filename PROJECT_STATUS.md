@@ -4,23 +4,23 @@
 
 ---
 
-**Architecture:** 🔒 v1.0 Frozen (June 26, 2026) — 8-layer architecture locked. See `docs/03-architecture.md` and Decisions #13–#17. Future discussions build toward this, not around redesigning it.
+**Strategic Direction:** 🔒 Brainrot Studio V1 (Decision #18, June 26, 2026) — vertical slice, Studio-first. Original 8-layer intelligence architecture (Decisions #13–#17) preserved as Phases 8–12, built after the Studio works end to end.
 
-**Current Milestone:** M0 — Technology Validation
+**Current Phase:** Phase 1 — Studio Foundation
 
-**Current Task:** M0-T01 — Video Provider Comparison (desk research done, hands-on API testing next)
+**Current Page:** Brand Management (`docs/studio/pages/01-brand-page.md`) — designed and frozen for V1. Lovable prompt not yet written.
 
-**Progress:** 9/16 rows locked on the Technology Decision Matrix. Production format locked (Narrative Visual Storytelling, Decision #14) — separate from and unblocked by the M0-T01 renderer choice, since the renderer just executes whatever format is chosen.
+**Progress:** Architecture frozen (Decisions #13–#17). Production format locked (Narrative Visual Storytelling, Decision #14 — still the content/visual-asset philosophy behind the Visual Engine). Strategic pivot to Studio-first locked (Decision #18). Zero pages built in Lovable yet.
 
-**Blockers:** None — next action is hands-on: render a real Narrative Visual Storytelling script through Creatomate, Shotstack, and JSON2Video.
+**Blockers:** None. Next action is concrete: write the Brand page Lovable prompt and build it.
 
-**Next Step:** Benchmark methodology + fixed test script are written (`docs/milestones/M0/M0-renderer-benchmark.md`, `M0-benchmark-script.md`). Implement the same Scene Blueprint in Creatomate, Shotstack, and JSON2Video, score against the weighted rubric, lock Decision #18. Then M0-T02 (Voice Provider).
+**Next Step:** Write the lean, first-pass Brand page Lovable prompt (enough to create a brand and move to Configure — not full depth). Build it in Lovable. That is this project's next required artifact (Core Rule, Decision #18).
 
 **Last Updated:** June 26, 2026
 
 ---
 
-For the architecture: `docs/03-architecture.md`
-For full milestone breakdown: `docs/00-roadmap.md`
-For the live decision tracker: `docs/research/technology-decision-matrix.md`
-For full M0 task list: `docs/milestones/M0/README.md`
+For the new roadmap: `docs/00-roadmap.md`
+For the Studio page workflow: `CONTRIBUTING.md` → "Brainrot Studio Page Workflow"
+For Studio page specs: `docs/studio/pages/`
+For the architecture reference (Phases 8–12): `docs/03-architecture.md`
