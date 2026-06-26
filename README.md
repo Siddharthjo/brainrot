@@ -44,7 +44,7 @@ Intelligence Engine (Scoring, Ranking, Filtering)
    ↓
 Script Generation (LLM)
    ↓
-Production Engine (Voice, Video, Captions)
+Story Visualization Engine (Scene Blueprint) → Render Engine (Voice, Video, Captions)
    ↓
 Publishing Engine (YouTube, Instagram)
    ↓
@@ -66,7 +66,7 @@ Every component is replaceable. Every decision is logged. Every video teaches th
 | M2 | Foundation | 2 weeks | ⏳ Next |
 | M3 | Research Engine | 2 weeks | ⏳ Next |
 | M4 | Intelligence Engine | 3 weeks | ⏳ Next |
-| M5 | Production Engine | 4 weeks | ⏳ Next |
+| M5 | Story Visualization & Render Engine | 4 weeks | ⏳ Next |
 | M6 | Publishing Engine | 1.5 weeks | ⏳ Next |
 | M7 | Analytics & Learning | 1 week | ⏳ Next |
 | M8 | CEO AI | 1 week | ⏳ Next |

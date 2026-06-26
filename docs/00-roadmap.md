@@ -106,9 +106,9 @@
 
 ---
 
-## 🧠 Milestone 4 — Intelligence Engine
+## 🧠 Milestone 4 — Intelligence Engine & Creative Director
 
-**Goal:** Turn raw information into publishable ideas.
+**Goal:** Turn raw information into a script + creative direction, ready to be visualized.
 
 **Duration:** 3 weeks
 
@@ -116,52 +116,59 @@
 - Viral scoring algorithm
 - Topic clustering
 - Hook generation (LLM)
-- Script generation (LLM)
+- Script generation (LLM) — Intelligence Engine (Layer 3)
 - AI review
-- Human approval workflow
+- Creative Director agent — tone, pacing, visual mood, retention strategy (Layer 4, Decision #15)
+- Human approval workflow (Mode A checkpoint, Decision #16)
 - Prompt management
 
-**Deliverable:** Queue of high-quality scripts ready for production.
+**Deliverable:** Queue of `Narration Script` + `Creative Brief` pairs, ready for the Story Visualization Engine.
 
 **Tasks:**
 - M4-T01: Scoring algorithm
 - M4-T02: Hook generator
-- M4-T03: Script generator
-- M4-T04: Approval workflow
-- M4-T05: Learning loop setup
+- M4-T03: Script generator (Intelligence Engine)
+- M4-T04: Creative Director agent
+- M4-T05: Approval workflow
+- M4-T06: Learning loop setup
 
 **Status:** Blocked on M3
 
 ---
 
-## 🎬 Milestone 5 — Production Engine
+## 🎬 Milestone 5 — Story Visualization Engine & Render Engine
 
-**Goal:** Convert approved scripts into videos.
+*(Renamed from "Production Engine" — see Decision #14, #17. This milestone covers Layers 5 and 6 of the frozen architecture.)*
+
+**Goal:** Convert a `Narration Script` + `Creative Brief` into a `Scene Blueprint`, then render it into a finished video (Narrative Visual Storytelling format — Decision #14).
 
 **Duration:** 4 weeks (includes renderer evaluation)
 
 **What We Do:**
+- Story Visualization Agent: scene splitting, per-scene asset-type selection (Layer 5)
 - Voice generation
-- Scene planning
-- Visual generation/B-roll
+- Visual generation/B-roll per scene (AI illustration, stock, motion graphic — chosen per scene/genre, not fixed globally)
 - Caption generation
 - Music selection
-- Video rendering (via provider API)
+- `Scene Blueprint` schema implementation (`schemas/scene_blueprint.py`, Decision #17)
+- Video rendering via provider API (Layer 6 — Render Engine, dumb executor)
 - Thumbnail creation
-- Preview & regeneration
+- Preview & regeneration (Mode A approval point sits here — Decision #16)
 
-**Deliverable:** Complete, platform-ready videos.
+**Deliverable:** Complete, platform-ready videos, produced from an approved Scene Blueprint.
 
 **Tasks:**
 - M5-T01: Voice provider integration
-- M5-T02: Scene planning
-- M5-T03: Video API integration
-- M5-T04: Thumbnail generation
-- M5-T05: Renderer evaluation & testing
+- M5-T02: Story Visualization Agent (scene planning + asset selection)
+- M5-T03: Scene Blueprint schema implementation
+- M5-T04: Video API integration (Render Engine)
+- M5-T05: Thumbnail generation
+- M5-T06: Renderer evaluation & testing
 
 **Status:** Blocked on M4
 
-**Note:** Renderer evaluation (M5-T05) is separate from implementation. Test all options, pick one.
+**Note:** Renderer evaluation (M5-T06) is separate from implementation. Test all options, pick one.
+
 
 ---
 

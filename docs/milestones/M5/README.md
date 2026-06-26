@@ -1,4 +1,4 @@
-# Milestone 5 — Production Engine
+# Milestone 5 — Story Visualization Engine & Render Engine
 
 **Status:** 🔒 Blocked (waiting on M4)
 

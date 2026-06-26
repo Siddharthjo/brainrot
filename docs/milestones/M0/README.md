@@ -16,6 +16,8 @@ Before writing any code, we test every external service and technology choice.
 
 This prevents discovering critical issues at week 10 when we're already deep in implementation.
 
+**Note:** During M0, an extended discussion about production format (which started as "gameplay vs. documentary vs. AI cinematic") converged into a full architecture freeze — see `docs/03-architecture.md` and Decisions #13–#17. That work is separate from this milestone's technology-validation tasks below, but happened in parallel and is now locked. M0's remaining tasks (provider selection) execute *within* that frozen architecture rather than informing it.
+
 ---
 
 ## Tasks
@@ -184,12 +186,12 @@ All test scripts and expected outputs:
 
 Update `/DECISIONS.md` with:
 
-**Decision #12 — Video Provider Choice**
-- Chosen: [AutoShorts / StoryShort / Creatomate / etc]
+**Decision #18 — Video Provider Choice**
+- Chosen: [Creatomate / Shotstack / JSON2Video — desk research narrowed to these 3, hands-on test pending]
 - Reason: [Why this one?]
 - Cost: [Per video estimate]
 
-**Decision #13 — Voice Provider Choice**
+**Decision #19 — Voice Provider Choice**
 - Chosen: [ElevenLabs / Google TTS / Cartesia]
 - Reason: [Why this one?]
 - Cost: [Per minute estimate]

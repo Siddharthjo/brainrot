@@ -1,6 +1,6 @@
 # Brainrot — Video Production Pipeline
 
-**Status:** To be written during M5 (Production Engine), provider locked in M0
+**Status:** To be written during M5 (Story Visualization Engine & Render Engine), provider locked in M0
 
 ---
 

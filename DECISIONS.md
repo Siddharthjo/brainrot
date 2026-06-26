@@ -259,13 +259,100 @@ response = ai_provider.generate_script(...)
 
 ---
 
+## Decision #13
 
+**Topic**: Architecture v1.0 — Freeze
+
+**Chosen**: Lock the 8-layer architecture (Sources → Research Engine → Intelligence Engine → Creative Director → Story Visualization Engine → Render Engine → Publishing Engine → Analytics Engine) as Brainrot's stable foundation.
+
+**Reasoning**:
+- Reached through extended M0 discussion that started as "which video format" and converged on a stronger insight: format and genre are different axes, and the real architecture is source-agnostic, format-agnostic at the content layer, and only vendor-specific at the edges (sources, renderer, publishing platforms).
+- Every layer maps to one of Brainrot's two moats (Research, Intelligence) or is a thin, replaceable executor (Render, Publishing) — no layer is both important AND vendor-locked.
+- Mission statement adopted to test all future decisions: "Brainrot transforms information into high-retention, story-driven short-form videos through modular AI decision layers." Deliberately excludes any platform, provider, or source name.
+
+**Consequence**: From this point forward, "should this layer exist" is not an open question. Changes to the architecture itself require a new decision entry here, not silent drift as features get added. Full detail in `docs/03-architecture.md`.
+
+**Date**: June 26, 2026
+
+**Status**: Active (Frozen v1.0)
+
+---
+
+## Decision #14
+
+**Topic**: Production Format — Narrative Visual Storytelling (renamed from "Documentary")
+
+**Chosen**: One production format for V1, defined as scene-based narration with frequent visual changes, dynamic captions, and per-scene asset selection — not locked to stock footage, AI images, or any single asset source.
+
+**Reasoning**:
+- Started as "Documentary" after a multi-tier Production Format Engineering Report (see `docs/research/`) comparing Documentary, Gameplay, AI Cinematic, Motion Graphics, Slideshow, and AI Avatar across automation difficulty, cost, licensing, and long-term viability. Documentary won on every dimension that matters: fits all 4 launch channels, no borrowed IP, no gameplay-footage licensing questions, best aligned with YouTube's monetization requirement for original commentary/editing.
+- Renamed because "Documentary" carries an unwanted mental model (BBC-style slow B-roll, logos, charts, news-anchor pacing) that would have biased implementation toward exactly the slow, corporate-feeling content this format isn't meant to produce.
+- Reddit Stories, Psychology, History, Business, Mystery, AI News are **genres** (content strategy, M3/M4 concern), not separate production formats. One pipeline serves all of them; only the per-scene asset type changes.
+- Considered and explicitly deferred to `BACKLOG.md`: Gameplay background, AI-generated cinematic (Veo/Kling/Runway), Image slideshow, AI Avatar/character-voice formats. Not rejected — postponed until the core platform is proven with V1.
+
+**Date**: June 26, 2026
+
+**Status**: Active
+
+---
+
+## Decision #15
+
+**Topic**: Creative Director — Separate Layer (not merged into Intelligence Engine)
+
+**Chosen**: Creative Director is its own layer/agent between Intelligence Engine and Story Visualization Engine, producing a distinct `Creative Brief` output.
+
+**Reasoning**:
+- Merging into Intelligence Engine saves one LLM call per video, but couples script-writing logic to tone/pacing/retention-strategy logic. These need to evolve independently — a future change to retention strategy shouldn't require touching how scripts get written, and vice versa.
+- The extra cost is acceptable because this layer is directly responsible for final video quality (tone, pacing, visual mood, ending style) — it's not overhead, it's where a meaningful share of Brainrot's output quality comes from.
+
+**Date**: June 26, 2026
+
+**Status**: Active
+
+---
+
+## Decision #16
+
+**Topic**: Human Approval — Configurable Checkpoint, Not a Fixed Stage
+
+**Chosen**: Two operating modes, switchable per channel:
+- **Mode A (Creator, default for V1):** approval happens after the Scene Blueprint (Story Visualization output), before any render credits are spent.
+- **Mode B (Autonomous, future):** no approval step — Research through Publish runs end to end.
+
+**Reasoning**: Approving a script in the abstract doesn't reveal whether pacing/visuals will actually work; approving the full Scene Blueprint shows what the video will actually look like before spending money on rendering. The checkpoint is implemented as a configurable flag in the pipeline, not hardcoded to one stage, so Mode B doesn't require architectural changes later — only flipping the flag once trust in the pipeline is established.
+
+**Date**: June 26, 2026
+
+**Status**: Active
+
+---
+
+## Decision #17
+
+**Topic**: Canonical Internal Schemas — Creative Brief & Scene Blueprint
+
+**Chosen**: Two schemas are the system's internal language. Every layer communicates through these — never raw provider JSON, never ad-hoc prompts passed directly between layers.
+- **Creative Brief** (Creative Director output → Story Visualization input): tone, emotion, energy, visual_language, hook_style, ending, target_duration, audience.
+- **Scene Blueprint** (Story Visualization output → Render Engine input): per-scene purpose, narration, emotion, duration, asset_type, asset_prompt, camera, transition, caption_style, sound_effects.
+
+**Reasoning**: The Scene Blueprint in particular is Brainrot's core IP — it's the structured representation of "how this story should be told visually," independent of which renderer executes it. Every downstream consumer (renderer, analytics, future A/B testing) reads from this schema, which is what makes the Render Engine swappable without touching anything above it.
+
+**Consequence**: `schemas/creative_brief.py` and `schemas/scene_blueprint.py` become two of the first files written in M1 — the shape is defined now (see `docs/03-architecture.md`), the Pydantic implementation follows during schema design.
+
+**Date**: June 26, 2026
+
+**Status**: Active
+
+---
+
+## Pending Decisions (M0)
 
 These will be decided during Technology Validation:
 
-- **Video Renderer**: AutoShorts vs StoryShort vs Creatomate
-- **Voice Provider**: ElevenLabs vs Google TTS vs Cartesia
-- **LLM for Scripts**: GPT-5.5 vs Claude vs Gemini
+- **Video Renderer**: Creatomate vs Shotstack vs JSON2Video (desk research narrowed; hands-on test pending — see `docs/research/M0-video-providers.md`)
+- **Voice Provider**: ElevenLabs vs Google TTS vs Cartesia vs PlayHT
+- **LLM Strategy**: which model serves which layer (Research, Intelligence, Creative Director, Script Review, CEO AI) — see `docs/research/technology-decision-matrix.md`
 - **Deployment Platform**: TBD
 
 ---
