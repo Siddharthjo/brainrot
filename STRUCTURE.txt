@@ -1,0 +1,132 @@
+BRAINROT REPOSITORY STRUCTURE
+═════════════════════════════════════════════════════════════════════
+Regenerated after the v2 restructuring (brain/, config/, storage/,
+schemas/, branding/, experiments/ added; assets/ retired in favor of
+branding/). This file is a live tree snapshot, not hand-maintained —
+regenerate with the python tree script if it drifts.
+═════════════════════════════════════════════════════════════════════
+
+.github/
+  ISSUE_TEMPLATE/
+    BUG.md
+    FEATURE.md
+    TASK.md
+backend/
+  README.md
+brain/
+  README.md
+  agents/
+    .gitkeep
+  orchestrator/
+    .gitkeep
+  prompts/
+    .gitkeep
+  providers/
+    .gitkeep
+  tools/
+    .gitkeep
+branding/
+  README.md
+  icons/
+    .gitkeep
+  logos/
+    .gitkeep
+  ui/
+    .gitkeep
+config/
+  README.md
+  channels/
+    .gitkeep
+  defaults/
+    .gitkeep
+  models/
+    .gitkeep
+  prompts/
+    .gitkeep
+  providers/
+    .gitkeep
+docs/
+  00-roadmap.md
+  01-vision.md
+  02-prd.md
+  03-architecture.md
+  04-tech-stack.md
+  05-database.md
+  06-api.md
+  07-dashboard.md
+  08-ai-agents.md
+  09-workflows.md
+  10-video-pipeline.md
+  11-decision-log.md
+  12-backlog.md
+  13-changelog.md
+  README.md
+  journal.md
+  api/
+    README.md
+  architecture/
+    README.md
+  channels/
+    README.md
+  decisions/
+    README.md
+  milestones/
+    M0/
+      README.md
+    M1/
+      README.md
+    M2/
+      README.md
+    M3/
+      README.md
+    M4/
+      README.md
+    M5/
+      README.md
+    M6/
+      README.md
+    M7/
+      README.md
+    M8/
+      README.md
+  research/
+    README.md
+experiments/
+  README.md
+frontend/
+  README.md
+infrastructure/
+  README.md
+schemas/
+  README.md
+scripts/
+  README.md
+shared/
+  README.md
+storage/
+  README.md
+  cache/
+    .gitkeep
+  generated/
+    .gitkeep
+  logs/
+    .gitkeep
+  temp/
+    .gitkeep
+tests/
+  README.md
+workers/
+  README.md
+
+═════════════════════════════════════════════════════════════════════
+
+NEXT STEPS:
+  1. git init
+  2. git add .
+  3. git commit -m "chore: initial repository structure"
+  4. Create GitHub repo
+  5. git remote add origin ...
+  6. git push -u origin main
+  7. Start M0 — Technology Validation
+
+═════════════════════════════════════════════════════════════════════

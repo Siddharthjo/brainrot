@@ -1,0 +1,30 @@
+# Auto detect text files and normalize line endings
+* text=auto
+
+# Source code
+*.py text diff=python
+*.js text
+*.jsx text
+*.ts text
+*.tsx text
+*.json text
+*.md text
+*.yml text
+*.yaml text
+
+# Don't diff lockfiles in PRs
+package-lock.json -diff
+poetry.lock -diff
+yarn.lock -diff
+
+# Binary files — never modify line endings
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mp4 binary
+*.mp3 binary
+*.wav binary
+*.zip binary
+*.pdf binary
