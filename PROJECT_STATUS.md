@@ -14,7 +14,7 @@
 
 **Blockers:** None — next action is hands-on: render a real Narrative Visual Storytelling script through Creatomate, Shotstack, and JSON2Video.
 
-**Next Step:** Write the test script, run it through the 3 finalist video APIs, lock Decision #18 (Video Provider). Then M0-T02 (Voice Provider).
+**Next Step:** Benchmark methodology + fixed test script are written (`docs/milestones/M0/M0-renderer-benchmark.md`, `M0-benchmark-script.md`). Implement the same Scene Blueprint in Creatomate, Shotstack, and JSON2Video, score against the weighted rubric, lock Decision #18. Then M0-T02 (Voice Provider).
 
 **Last Updated:** June 26, 2026
 

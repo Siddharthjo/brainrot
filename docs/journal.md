@@ -55,5 +55,15 @@ Completed: Wrote `docs/03-architecture.md` (full v1.0 freeze, with mission state
 Problems: None significant — mostly bookkeeping (decision numbers shifting as work happened out of strict sequential order).
 Next: M0-T01 hands-on renderer test, now informed by the locked format (Narrative Visual Storytelling) rather than a generic test script. Architecture is frozen — future sessions build toward it, not around redesigning it (Decision #13).
 
+---
+
+## June 26, 2026 (final session) — M0-T01 benchmark designed
+
+Worked on: Turned "render a test script through 3 providers" into a proper weighted benchmark, per CTO's request. Wrote a 7-criterion scoring rubric (API integration, template flexibility, visual quality, render speed, reliability, cost, scalability — weighted 20/20/20/10/10/10/10) and a fixed benchmark script written as an actual Scene Blueprint (the canonical schema from Decision #17) — an 8-scene, 52-second AI News story deliberately stressing all 3 asset types (stock footage, AI illustration, motion graphic), a repeated visual motif, mixed caption styles, layered audio, and a CTA scene.
+Completed: `docs/milestones/M0/M0-renderer-benchmark.md` (methodology, rubric, comparison table template, per-provider implementation notes mapping Scene Blueprint fields to each API's native shape) and `docs/milestones/M0/M0-benchmark-script.md` (the fixed input). Updated M0 README and PROJECT_STATUS.md to point to these as the actual next action.
+Problems: None.
+Next: Actually implement the benchmark script in Creatomate, Shotstack, and JSON2Video by hand, score the results, lock Decision #18. This is real implementation work (not research/docs) — first time M0 produces something outside `/docs`.
+
+
 
 

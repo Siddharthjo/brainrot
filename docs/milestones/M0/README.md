@@ -26,30 +26,21 @@ This prevents discovering critical issues at week 10 when we're already deep in 
 
 **Objective**: Evaluate video generation platforms for quality, API, cost, and automation.
 
-**Candidates**:
-- AutoShorts
-- StoryShort  
-- Creatomate
-- Shotstack
-- BigMotion AI
-- InVideo AI
+**Desk research complete** — see `docs/research/M0-video-providers.md`. Narrowed from 7 candidates (AutoShorts, StoryShort, Creatomate, Shotstack, BigMotion, InVideo, JSON2Video) to 3 finalists for hands-on testing: **Creatomate, Shotstack, JSON2Video**. AutoShorts eliminated (no confirmed API). StoryShort held for one narrow test (can it render a plain script without forcing an AI avatar character?).
+
+**Hands-on benchmark — ready to execute:**
+- Methodology + weighted scoring rubric: `M0-renderer-benchmark.md`
+- Fixed test input (one Scene Blueprint, identical across all 3 providers): `M0-benchmark-script.md`
 
 **Testing Protocol**:
-1. Take the same script (provided in `/docs/M0/test-script.txt`)
-2. Generate a video on each platform
-3. Compare:
-   - Visual quality (1-10 rating)
-   - Caption animations
-   - B-roll relevance
-   - Rendering speed
-   - API documentation
-   - Cost per video
-   - Customization options
-   - Commercial licensing
+1. Implement the benchmark Scene Blueprint (`M0-benchmark-script.md`) identically in Creatomate, Shotstack, and JSON2Video
+2. Score each against the weighted rubric in `M0-renderer-benchmark.md` (API integration, template flexibility, visual quality, render speed, reliability, cost, scalability)
+3. Record results in the comparison table in `M0-renderer-benchmark.md`
+4. Lock Decision #18 — no revisiting unless a later requirement genuinely forces it
 
-**Deliverable**: Comparison table in `/docs/M0/video-providers.md`
+**Deliverable**: Completed comparison table + Decision #18 in `/DECISIONS.md`
 
-**Status**: ⏳ Not Started
+**Status**: ⏳ Benchmark designed, execution not started
 
 ---
 
