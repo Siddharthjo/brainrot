@@ -62,10 +62,10 @@
 These map the benchmark's Scene Blueprint fields to each provider's native API shape — written so implementation doesn't require re-deriving the mapping from scratch per provider.
 
 ### Creatomate
-- Each `scene_N` → one element group in a Creatomate template, swapped via the `modifications` object in the `POST /v2/renders` call.
-- `asset_type: stock_footage` → `Background-Video` modification pointing at a Pexels URL fetched beforehand (no native stock search inside Creatomate itself — fetch from Pexels API first, then pass the URL).
-- `caption_style` → text element with per-scene `fill_color`/`font` modifications.
-- No native TTS — voiceover must be pre-generated and passed as an audio asset URL.
+- Each `scene_N` → one `composition` element (containing its own visual + caption + audio) on a shared track, sequenced by explicit cumulative `time` values.
+- `asset_type: stock_footage` → `Background-Video`-style modification pointing at a Pexels URL fetched beforehand (no native stock search inside Creatomate itself — fetch from Pexels API first, then pass the URL).
+- `caption_style` → text element with per-scene `fill_color`/`font_family`/`font_size` properties.
+- **Correction from earlier desk research:** Creatomate *does* have native TTS — connect an ElevenLabs API key in Project Settings, then a `text-to-speech` element generates the voiceover during render with **no separate API call needed**. It can also auto-transcribe that generated voiceover into synced captions by referencing the audio element by name. This means Creatomate could plausibly handle Render + Voice in one provider, which is relevant to M0-T02, not just M0-T01.
 
 ### Shotstack
 - Each `scene_N` → one `clip` inside Shotstack's `timeline.tracks` JSON.
